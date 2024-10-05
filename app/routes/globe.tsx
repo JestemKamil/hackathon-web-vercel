@@ -1,5 +1,6 @@
 import GlobeComponent from "@/components/globe"
 import type { MetaFunction } from "@remix-run/node"
+import { useLoaderData } from "@remix-run/react"
 
 export const meta: MetaFunction = () => {
     return [
@@ -11,10 +12,20 @@ export const meta: MetaFunction = () => {
     ]
 }
 
+export async function loader() {
+    const response = await fetch(
+        "https://aurora.hendrikpeter.net/api/aurora_data.json",
+    )
+    const json = await response.json()
+    return json
+}
+
 export default function GlobeRoute() {
+    const data = useLoaderData<typeof loader>()
+    console.log(data.locations)
     return (
         <div>
-            <GlobeComponent />
+            <GlobeComponent locations={data.locations} />{" "}
         </div>
     )
 }
