@@ -15,6 +15,7 @@ export default function GlobeComponent() {
             setGlobe(
                 <Globe
                     globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
+                    backgroundColor="#0a0a0a"
                     backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
                 />,
             )
