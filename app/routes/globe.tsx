@@ -11,6 +11,10 @@ export const meta: MetaFunction = () => {
     ]
 }
 
-export default function Index() {
-    return <div></div>
+export default function GlobeRoute() {
+    return (
+        <div>
+            <GlobeComponent />
+        </div>
+    )
 }
