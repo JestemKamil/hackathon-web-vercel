@@ -25,7 +25,7 @@ export default function GlobeRoute() {
     console.log(data.locations)
     return (
         <div>
-            <GlobeComponent locations={data.locations} />{" "}
+            <GlobeComponent locations={data.locations} />
         </div>
     )
 }

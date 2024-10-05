@@ -36,7 +36,7 @@ export default function GlobeComponent({ locations }: { locations: any }) {
                         el.style.width = `${d.size}px`
 
                         el.style["pointer-events"] = "auto"
-                        el.style.cursor = "pointer"
+                        // el.style.cursor = "pointer"
                         // el.onclick = () =>
                         return el
                     }}
