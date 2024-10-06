@@ -1,3 +1,4 @@
+import { LinkPreview } from "@/components/aceternity/link-preview"
 import { ShootingStars } from "@/components/aceternity/shooting-stars"
 import { StarsBackground } from "@/components/aceternity/stars-background"
 import { TextGenerateEffect } from "@/components/aceternity/text-generate-effect"
@@ -37,6 +38,14 @@ export default function Index() {
             </div>
             <div className="flex justify-center text-center">
                 <TextGenerateEffect className="max-w-5xl" words={words} />
+            </div>
+            <div className="flex justify-center">
+                <LinkPreview
+                    url="https://github.com/hackathonstw/web"
+                    className="z-50 bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text font-bold text-transparent underline"
+                >
+                    Download android app
+                </LinkPreview>
             </div>
             <ShootingStars />
             <StarsBackground />
