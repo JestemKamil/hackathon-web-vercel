@@ -8,15 +8,16 @@ export default function GlobeComponent({ locations }: { locations: any }) {
         </div>,
     )
 
-    const markerSvg = `<svg viewBox="-4 0 36 36">
-    <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
-    <circle fill="black" cx="14" cy="14" r="7"></circle>
-  </svg>`
     console.log(locations)
 
     const gData = Object.values(locations).map((location: any) => ({
         lat: location.lat,
         lng: location.long,
+        label: location.human_readable_name,
+        average_deviation: location.average_deviation,
+        average_total: location.average_total,
+        quiet_mean_tot: location.quiet_mean_tot,
+        title: "Aurora",
         size: 25,
         color: "#00ff00",
     }))
@@ -28,18 +29,25 @@ export default function GlobeComponent({ locations }: { locations: any }) {
                     globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
                     backgroundColor="#0a0a0a"
                     backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
-                    htmlElementsData={gData}
-                    htmlElement={(d: any) => {
-                        const el: any = document.createElement("div")
-                        el.innerHTML = markerSvg
-                        el.style.color = d.color
-                        el.style.width = `${d.size}px`
-
-                        el.style["pointer-events"] = "auto"
-                        // el.style.cursor = "pointer"
-                        // el.onclick = () =>
-                        return el
-                    }}
+                    showGraticules={true}
+                    labelsData={gData}
+                    labelText="title"
+                    labelSize={0.2}
+                    labelDotRadius={0.4}
+                    // labelDotOrientation={(d) =>
+                    //     labelsTopOrientation.has(d.label) ? "top" : "bottom"
+                    // }
+                    labelColor={(d: any) => d.color}
+                    labelLabel={(d: any) => `
+                      <div><b>Aurora</b></div>
+                      <div>Location: ${d.label}</div>
+                      <div><b>Data:</b></div>
+                      <div>Latitude: ${d.lat}</div>
+                      <div>Longitude: ${d.lng}</div>
+                      <div>Average deviation: ${d.average_deviation}</div>
+                      <div>Average total: ${d.average_total}</div>
+                      <div>Quiet mean tot: ${d.quiet_mean_tot}</div>
+                    `}
                 />,
             )
         })
