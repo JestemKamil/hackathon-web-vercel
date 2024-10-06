@@ -22,7 +22,6 @@ export async function loader() {
 
 export default function GlobeRoute() {
     const data = useLoaderData<typeof loader>()
-    console.log(data.locations)
     return (
         <div>
             <GlobeComponent locations={data.locations} />
