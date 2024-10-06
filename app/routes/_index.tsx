@@ -41,7 +41,7 @@ export default function Index() {
             </div>
             <div className="flex justify-center">
                 <LinkPreview
-                    url="https://github.com/hackathonstw/web"
+                    url="https://github.com/hackathonstw/mobile"
                     className="z-50 bg-gradient-to-br from-purple-500 to-pink-500 bg-clip-text font-bold text-transparent underline"
                 >
                     Download android app
